@@ -8,8 +8,4 @@ class StringManipulator:
     def printString(self):
         print(self.input_string.upper())
 
-# Пример использования класса
-if __name__ == "__main__":
-    manipulator = StringManipulator()
-    manipulator.getString()
-    manipulator.printString()
+
