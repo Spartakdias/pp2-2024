@@ -4,11 +4,11 @@ def filter_highly_rated_movies(movies):
 def input_movie_data():
     movies = []
     while True:
-        title = input("'exit' to stop): ")
+        title = input()
         if title.lower() == 'exit':
             break
 
-        imdb_rating = float(input("Enter the IMDB rating: "))
+        imdb_rating = float(input())
 
         movie = {'title': title, 'imdb_rating': imdb_rating}
         movies.append(movie)
@@ -18,6 +18,4 @@ def input_movie_data():
 movies_list = input_movie_data()
 
 highly_rated_movies = filter_highly_rated_movies(movies_list)
-
-highly_rated_movies = filter_highly_rated_movies(movies_list)
-print("Highly rated movies:", highly_rated_movies)
+print( highly_rated_movies)
