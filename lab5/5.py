@@ -8,17 +8,3 @@ def test(s):
 s = input()
 string = test(s)
 print(string)
-
-
-
-0 1 0+1
-
-def fib(n , s):
-    for i in range(s , n+1):
-        yield s+n
-
-s = int(input())
-n = int(input())
-answer  = fib(n , s)
-for i in answer:
-    print(i)
