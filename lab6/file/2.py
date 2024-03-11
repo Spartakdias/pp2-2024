@@ -20,7 +20,7 @@ def check_path(path):
             if os.access(path, os.X_OK):
                 print("is executable")
             else:
-                print(f"Path '{path}' is not executable.")
+                print("is not executable.")
 
         else:
             print("does not exist")
