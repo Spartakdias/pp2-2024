@@ -8,7 +8,7 @@ surface = pygame.display.set_mode((width, height))
 name_pro = pygame.display.set_caption("Music player")
 
 
-background = pygame.image.load('image/background.jpeg')
+background = pygame.image.load('image/background.jpg')
 stop_icon = pygame.image.load('image/stop_icon.png')
 next_icon = pygame.image.load('image/next_icon.png')
 previous_icon = pygame.image.load('image/previous_icon.png')
