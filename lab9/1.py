@@ -4,7 +4,7 @@ import time
 
 pygame.init()
 
-# surface of game
+
 WIDTH = 1080
 HEIGHT = 1000
 surface = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -13,13 +13,13 @@ road_g = pygame.image.load("image/road.png")
 WEIGHTED_COINS = [(1, 'image/coin.png'), (2, 'image/cash.png')]
 LEVEL = 1
 
-# parameters
+
 run = True
 FPS = 60
 SPEED = 5
 SCORE = 0
 
-# my picture is looking for left so I need rotate picture
+
 def rotation_p(image, angle):
     return pygame.transform.rotate(image, angle)
 
@@ -27,10 +27,10 @@ def rotation_p(image, angle):
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("image/blue_car.png")  # load picture
-        self.image = pygame.transform.scale(self.image, (200, 140))  # do picture 200x200
-        self.image = rotation_p(self.image, 90)  # rotate
-        self.rect = self.image.get_rect()  # get coordinate
+        self.image = pygame.image.load("image/blue_car.png")  
+        self.image = pygame.transform.scale(self.image, (200, 140))  
+        self.image = rotation_p(self.image, 90)  
+        self.rect = self.image.get_rect()  
         self.rect.center = (450, 800)
     
     def move(self):
@@ -41,7 +41,7 @@ class Player(pygame.sprite.Sprite):
         if self.rect.right < 950 and pressed_key[pygame.K_RIGHT]:
             self.rect.x += 10
 
-# create Enemy
+
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -57,7 +57,7 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.top = 0
             self.rect.center = (random.randint(130, 950), 0)
 
-# create Coin
+
 class Coin(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -85,7 +85,7 @@ P1 = Player()
 E1 = Enemy()
 C = Coin()
 
-# Creating Sprites Group
+
 enemies = pygame.sprite.Group()
 enemies.add(E1)
 
@@ -97,11 +97,11 @@ all_sprites.add(P1)
 all_sprites.add(E1)
 all_sprites.add(C)
 
-# Adding a new User event
-INC_SPEED = pygame.USEREVENT + 1 # our event
+
+INC_SPEED = pygame.USEREVENT + 1 
 pygame.time.set_timer(INC_SPEED, 1000)
 
-font = pygame.font.Font('freesansbold.ttf', 44)  # Font for the score
+font = pygame.font.Font('font/Roboto-Light.ttf', 55)  
 
 while run:
     tickrate = pygame.time.Clock()
@@ -114,16 +114,14 @@ while run:
     
     surface.blit(road_g, (0, -10))
 
-    # every sprite blit on surface and move
+   
     for entity in all_sprites:
         surface.blit(entity.image, entity.rect)
         entity.move()
 
-    # Check for collision between Player and Coin
     if pygame.sprite.spritecollideany(P1, coins):
         SCORE += C.weight
-        C.update_coin()  # Respawn the coin because coin need to start y = 0 and with random
-    # Check for collision between Player and Enemy
+        C.update_coin()  
     if pygame.sprite.spritecollideany(P1, enemies):
         surface.fill((255, 0, 0)) 
         pygame.display.update()
@@ -132,13 +130,13 @@ while run:
         time.sleep(2)
         run = False
 
-    # Display the score
-    score_text = font.render('Score: ' + str(SCORE), True, (0,10,0))
-    surface.blit(score_text, (120, 10))
 
-    # Increase enemy speed when the player earns N coins
-    if SCORE == 10 and LEVEL == 1:  # Adjust this number to change when the speed increases
-        SPEED += 2  # Increase the enemy speed
+    score_text = font.render('Score: ' + str(SCORE), True, (0,10,0))
+    surface.blit(score_text, (120, 60))
+
+   
+    if SCORE == 10 and LEVEL == 1:  
+        SPEED += 2  
         LEVEL += 1
     if SCORE == 20 and LEVEL == 2:  
         SPEED += 2
