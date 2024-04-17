@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image = pygame.image.load("image/blue_car.png")  # load picture
-        self.image = pygame.transform.scale(self.image, (200, 140))  # do picture 200x200
+        self.image = pygame.transform.scale(self.image, (200, 140))  # do picture 200x140
         self.image = rotation_p(self.image, 90)  # rotate
         self.rect = self.image.get_rect()  # get coordinate
         self.rect.center = (450, 800)
@@ -86,15 +86,15 @@ all_sprites.add(E1)
 all_sprites.add(C)
 
 # Adding a new User event
-INC_SPEED = pygame.USEREVENT + 1 # our event
+INC_SPEED = pygame.USEREVENT + 1 
 
 pygame.time.set_timer(INC_SPEED, 1000)
 
-font = pygame.font.Font('freesansbold.ttf', 44)  # Font for the score
 
 while run:
     tickrate = pygame.time.Clock()
     
+
     for event in pygame.event.get():
         if event.type == INC_SPEED:
               SPEED += 0.12
@@ -103,30 +103,25 @@ while run:
     
     surface.blit(road_g, (0, -10))
 
-    # every sprite blit on surface and move
     for entity in all_sprites:
         surface.blit(entity.image, entity.rect)
         entity.move()
 
-    # Check for collision between Player and Coin
+ 
     if pygame.sprite.spritecollideany(P1, coins):
         SCORE += 1
         C.rect.center = (random.randint(135, WIDTH - 135), 0)  # Respawn the coin because coin need to start y = 0 and with random
 
-    # Check for collision between Player and Enemy
-    #To be run if collision occurs between Player and Enemy
+    
     if pygame.sprite.spritecollideany(P1, enemies):
         surface.fill((255, 0, 0)) 
         pygame.display.update()
         for entity in all_sprites:
             entity.kill() 
-        # sleep for see that you lose until 2 sec.
+        
         time.sleep(2)
         run = False
 
-    # Display the score
-    score_text = font.render('Score: ' + str(SCORE), True, (0,10,0))
-    surface.blit(score_text, (120, 10))
 
     pygame.display.update()
     tickrate.tick(FPS)

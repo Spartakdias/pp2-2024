@@ -7,7 +7,7 @@ width , height = 652, 330
 surface = pygame.display.set_mode((width, height))
 name_pro = pygame.display.set_caption("Music player")
 
-#load image 512 x 512
+
 background = pygame.image.load('image/background.jpeg')
 stop_icon = pygame.image.load('image/stop_icon.png')
 next_icon = pygame.image.load('image/next_icon.png')
@@ -15,7 +15,7 @@ previous_icon = pygame.image.load('image/previous_icon.png')
 play_icon = pygame.image.load('image/play_icon.png')
 
 
-#load music
+
 pygame.mixer.music.load('music/Kygo, Selena Gomez – It Aint Me.mp3')
 pygame.mixer.music.load('music/skriptonit-feat.-charusha-kosmos.mp3')
 pygame.mixer.music.load('music/Maneskin-I Wanna Be Your Slave.mp3')
@@ -48,7 +48,7 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if (event.key == pygame.K_SPACE or event.key == pygame.K_F7) and is_playing == False:
-                # pause need for didn`t replay music
+                
                 if paused_time != 0:
                     pygame.mixer.music.unpause()
                     is_playing = True
