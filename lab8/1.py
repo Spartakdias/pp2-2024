@@ -16,7 +16,7 @@ FPS = 60
 SPEED = 5
 SCORE = 0
 
-# my picture is looking for left so I need rotate picture
+
 def rotation_p(image, angle):
     return pygame.transform.rotate(image, angle)
 
