@@ -10,7 +10,7 @@ fps = 60
 activeColor = (0, 0, 0)
 activeShape = 0
 
-w = 800 # Set Window Size
+w = 800 
 h = 600
 
 screen = pygame.display.set_mode([w, h]) 
@@ -82,11 +82,11 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-        if event.type == pygame.KEYDOWN: # Set quit event
+        if event.type == pygame.KEYDOWN: 
             if event.key == pygame.K_ESCAPE:
                 run = False
 
-        if event.type == pygame.KEYDOWN: # Set quit event
+        if event.type == pygame.KEYDOWN: 
             if event.key == pygame.K_SPACE:
                 painting = []
 
@@ -99,4 +99,4 @@ while run:
                     activeShape = i[1]
     
 
-    pygame.display.flip() # Update Screen
+    pygame.display.flip() 

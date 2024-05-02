@@ -146,7 +146,7 @@ while RUN:
         if S.snake_position[0] == body[0] and S.snake_position[1] == body[1]:
             RUN = False
 
-    show_score( black, 'times new roman', 30)
+    show_score( black, 'font/Roboto-Light.ttf', 30)
     pygame.display.update()
     tickrate.tick(FPS)
 

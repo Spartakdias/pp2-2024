@@ -23,7 +23,6 @@ def rotation1(image,angel):
 
 while run:
     time = datetime.datetime.now()
-    minutes = time.minute
     seconds = time.second
     angel_l = (minutes + 0.65) * 6 
     angel_r = (seconds + 8.75) * 6 
